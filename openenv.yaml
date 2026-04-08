@@ -1,0 +1,24 @@
+name: email_env
+version: 1.0
+
+description: >
+  Email automation environment with classification, priority detection, and action tasks.
+
+entry_point: my_env.env:EmailEnv
+
+tasks:
+  - name: classification
+    description: Classify email into category
+  - name: priority
+    description: Detect priority level
+  - name: action
+    description: Suggest action
+
+action_space:
+  type: text
+
+observation_space:
+  type: object
+  fields:
+    email_text: string
+    task_type: string

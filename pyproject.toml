@@ -1,0 +1,15 @@
+[project]
+name = "email-env"
+version = "0.1.0"
+description = "Email automation RL environment for OpenEnv hackathon"
+authors = [{name = "Prashanth"}]
+dependencies = [
+    "pydantic",
+    "openenv-core>=0.2.0"
+]
+
+[project.scripts]
+server = "server.app:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
