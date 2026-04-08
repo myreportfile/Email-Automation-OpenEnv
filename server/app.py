@@ -8,6 +8,18 @@ app = FastAPI()
 env = EmailEnv()
 
 
+# ✅ NEW: Home route (add here)
+@app.get("/")
+def home():
+    return {
+        "message": "Email OpenEnv API is running 🚀",
+        "endpoints": {
+            "/reset": "POST → Get a new email task",
+            "/step": "POST → Send response and get reward"
+        }
+    }
+
+
 @app.post("/reset")
 def reset():
     obs = env.reset()
@@ -33,11 +45,11 @@ def step(action: dict):
     }
 
 
-# ✅ REQUIRED main() function
+# REQUIRED main() function
 def main():
     uvicorn.run(app, host="0.0.0.0", port=8000)
 
 
-# ✅ REQUIRED for validation
+# REQUIRED for validation
 if __name__ == "__main__":
     main()
